@@ -1,11 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { TestModule } from './../src/test.module';
 import { BookingDto } from './../src/bookings/entities/booking.dto';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Booking } from '../src/bookings/entities/booking.entity';
 import { Repository, Connection } from 'typeorm';
+import { AppModule } from './../src/app.module';
 
 describe('BookingsController (e2e)', () => {
   let app: INestApplication;
@@ -25,8 +26,8 @@ describe('BookingsController (e2e)', () => {
   });
 
   beforeEach(async () => {
-    await connection.dropDatabase();
-    await connection.runMigrations();
+    // await connection.dropDatabase();
+    // await connection.runMigrations();
     await moduleFixture.close();
   });
 

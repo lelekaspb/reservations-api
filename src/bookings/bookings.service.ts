@@ -22,11 +22,11 @@ export class BookingsService {
     return this.bookingsRepository.save(bookingDto);
   }
 
-  async update(updateBookingDto) {
-    return;
+  async update(bookingDto: BookingDto, id: number) {
+    return this.bookingsRepository.update(id, bookingDto);
   }
 
   async remove(id: number) {
-    return;
+    return this.bookingsRepository.delete(id);
   }
 }
